@@ -30,67 +30,104 @@ The data organization example is shown in folder "MRI_to_CT_brain_for_dosimetric
 
 # Usage
 
-The usage is in the jupyter notebook TDM main.ipynb. Including how to build a diffusion process, how to build a network, and how to call the diffusion process to train, and sample new synthetic images. However, we give simple example below:
+The usage is in the jupyter notebook MC-IDDPM main.ipynb. Including how to build a diffusion process, how to build a network, and how to call the diffusion process to train, and sample new synthetic images. However, we give simple example below:
 
 **Create diffusion**
 ```
 from diffusion.Create_diffusion import *
 from diffusion.resampler import *
 
+diffusion_steps=1000
+learn_sigma=True
+timestep_respacing=[50]
+
+# Don't toch these parameters, they are irrelant to the image synthesis
+sigma_small=False
+class_cond=False
+noise_schedule='linear'
+use_kl=False
+predict_xstart=False
+rescale_timesteps=True
+rescale_learned_sigmas=True
+use_checkpoint=False
+
 diffusion = create_gaussian_diffusion(
-    steps=1000,
-    learn_sigma=True,
-    sigma_small=False,
-    noise_schedule='linear',
-    use_kl=False,
-    predict_xstart=False,
-    rescale_timesteps=True,
-    rescale_learned_sigmas=True,
-    timestep_respacing=[250],
+    steps=diffusion_steps,
+    learn_sigma=learn_sigma,
+    sigma_small=sigma_small,
+    noise_schedule=noise_schedule,
+    use_kl=use_kl,
+    predict_xstart=predict_xstart,
+    rescale_timesteps=rescale_timesteps,
+    rescale_learned_sigmas=rescale_learned_sigmas,
+    timestep_respacing=timestep_respacing,
 )
 schedule_sampler = UniformSampler(diffusion)
 ```
 
 **Create network**
 ```
-attention_resolutions="64,32,16,8"
+num_channels=64
+attention_resolutions="32,16,8"
+channel_mult = (1, 2, 3, 4)
+num_heads=[4,4,8,16]
+window_size = [[4,4,4],[4,4,4],[4,4,2],[4,4,2]]
+num_res_blocks = [2,2,2,2]
+sample_kernel=([2,2,2],[2,2,1],[2,2,1],[2,2,1]),
+
 attention_ds = []
 for res in attention_resolutions.split(","):
     attention_ds.append(int(res))
+class_cond = False
+use_scale_shift_norm=True
+resblock_updown = False
+dropout = 0
 
-image_size = 256
 from network.Diffusion_model_transformer import *
 model = SwinVITModel(
-        image_size=(image_size,image_size),
-        in_channels=1,
-        model_channels=128,
-        out_channels=2,
-        sample_kernel=([2,2],[2,2],[2,2],[2,2],[2,2]),
-        num_res_blocks=[2,2,1,1,1,1],
-        attention_resolutions=tuple(attention_ds),
-        dropout=0,
-        channel_mult=(1, 1, 2, 2, 4, 4),
-        num_classes=None,
-        num_heads=[4,4,4,8,16,16],
-        window_size = [[4,4],[4,4],[4,4],[8,8],[8,8],[4,4]],
-        use_scale_shift_norm=True,
-        resblock_updown=False,
-    )
+          image_size=img_size,
+          in_channels=2,
+          model_channels=num_channels,
+          out_channels=2,
+          dims=3,
+          sample_kernel = sample_kernel,
+          num_res_blocks=num_res_blocks,
+          attention_resolutions=tuple(attention_ds),
+          dropout=dropout,
+          channel_mult=channel_mult,
+          num_classes=None,
+          use_checkpoint=False,
+          use_fp16=False,
+          num_heads=num_heads,
+          window_size = window_size,
+          num_head_channels=64,
+          num_heads_upsample=-1,
+          use_scale_shift_norm=use_scale_shift_norm,
+          resblock_updown=resblock_updown,
+          use_new_attention_order=False,
+      ).to(device)
 ```
 
 **Train the diffusion**
 ```
 batch_size = 10
 t, weights = schedule_sampler.sample(batch_size, device)
-all_loss = diffusion.training_losses(model,traindata,t=t)
+all_loss = diffusion.training_losses(model,target,condition, t)
 loss = (all_loss["loss"] * weights).mean()
 ```
 
-**generate new synthetic images**
+**Testing using MONAI's window-sliding inferencer**
 ```
-num_sample = 10
-image_size = 256
-x = diffusion.p_sample_loop(model,(num_sample, 1, image_size, image_size),clip_denoised=True)
+img_num = 12
+overlap = 0.5
+inferer = SlidingWindowInferer(img_size, img_num, overlap=overlap, mode ='constant')
+def diffusion_sampling(condition, model):
+    sampled_images = diffusion.p_sample_loop(model,(condition.shape[0], 1,
+                                                    condition.shape[2], condition.shape[3],condition.shape[4]),
+                                                    condition = condition,clip_denoised=True)
+    return sampled_images
+
+sampled_images = inferer(condition,diffusion_sampling,model)
 ```
 
 
