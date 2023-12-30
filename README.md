@@ -19,8 +19,8 @@ conda env create -f \your directory\environment.yaml
 
 # Data organization
 The data organization example is shown in folder "MRI_to_CT_brain_for_dosimetric\imagesTr". Or you can see the below screenshots:
-MATLAB files:
-![Capture](https://github.com/shaoyanpan/Synthetic-CT-generation-from-MRI-using-3D-transformer-based-denoising-diffusion-model/assets/89927506/ea7565d1-504b-4203-850c-759b6e92bbc7)
+**MATLAB files:**
+![Capture](https://github.com/shaoyanpan/Synthetic-CT-generation-from-MRI-using-3D-transformer-based-denoising-diffusion-model/assets/89927506/e66fe328-8e14-4c8b-9a55-9c68b36f81d0)
 
 # Usage
 
