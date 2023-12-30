@@ -19,8 +19,14 @@ conda env create -f \your directory\environment.yaml
 
 # Data organization
 The data organization example is shown in folder "MRI_to_CT_brain_for_dosimetric\imagesTr". Or you can see the below screenshots:
-**MATLAB files:**
-![Capture](https://github.com/shaoyanpan/Synthetic-CT-generation-from-MRI-using-3D-transformer-based-denoising-diffusion-model/assets/89927506/e66fe328-8e14-4c8b-9a55-9c68b36f81d0)
+
+**MATLAB files: every matlab file can contain a dict has image and label together. So you see you only need two folders: imagesTr for training, imagesTs for testing, and imagesVal for validation. You can change the name but please make sure also change the reading dir in the jupyter notebook**
+![Capture](https://github.com/shaoyanpan/Synthetic-CT-generation-from-MRI-using-3D-transformer-based-denoising-diffusion-model/assets/89927506/1a07d63d-5009-4ecf-aa88-8c86647e46e2)
+
+
+**Nii files: one nii file can only contain either image or label. So in this case, you need imagesTr and labelsTr for training, imagesTs and labelsTs for testing, and imagesVal and labelsVal for validation**
+![Capture2](https://github.com/shaoyanpan/Synthetic-CT-generation-from-MRI-using-3D-transformer-based-denoising-diffusion-model/assets/89927506/b6f7757c-f962-44ca-974f-266429b6e6f9)
+
 
 # Usage
 
