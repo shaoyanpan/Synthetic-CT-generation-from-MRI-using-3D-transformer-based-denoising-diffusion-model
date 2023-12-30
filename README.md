@@ -4,17 +4,15 @@
 
 The codes were created based on [image-guided diffusion](https://github.com/openai/guided-diffusion), [SwinUnet](https://github.com/HuCaoFighting/Swin-Unet), and [Monai](https://monai.io/)
 
-Updated 1.1:
-With a modified variational bound loss code following the image-guided diffusion, we are able to use 1000 training timestep and 50 inference timesteps (instead of 4000 training and 500 inference timesteps in the paper) and stablize the training process to generate the fancy images! **Maybe this is not very important for 2D synthesis, but it is critical for 3D synthesis!!**
-The details are shown in our another paper "[Synthetic CT Generation from MRI using 3D Transformer-based Denoising Diffusion Model](https://arxiv.org/abs/2305.19467)"
+Notice: Due to the data restriction, we can only provide MATLAB file (so no patient information) with over-smoothed CT volumes. The data we show just to demonstrate how the user should organize their data. The dicom or nii file processing are also included in the Jupyter notebook.
 
 # Required packages
 
-The requires packages are in test_env.yaml.
+The requires packages are in environment.yaml.
 
 Create an environment using Anaconda:
 ```
-conda env create -f \your directory\test_env.yaml
+conda env create -f \your directory\environment.yaml
 ```
 
 
