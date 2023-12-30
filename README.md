@@ -1,5 +1,5 @@
 # Synthetic-CT-generation-from-MRI-using-3D-transformer-based-denoising-diffusion-model
-**This is the repository for the paper "[Synthetic CT generation from MRI using 3D transformer-based denoising diffusion model](https://aapm.onlinelibrary.wiley.com/doi/10.1002/mp.16847))".**
+**This is the repository for the paper "[Synthetic CT generation from MRI using 3D transformer-based denoising diffusion model](https://aapm.onlinelibrary.wiley.com/doi/10.1002/mp.16847)".**
 
 The codes were created based on [image-guided diffusion](https://github.com/openai/guided-diffusion), [SwinUnet](https://github.com/HuCaoFighting/Swin-Unet), and [Monai](https://monai.io/)
 
