@@ -131,26 +131,12 @@ sampled_images = inferer(condition,diffusion_sampling,model)
 ```
 
 
-# Visual examples
+# Visual examples (also shown in the paper)
 
-![image_1](https://github.com/shaoyanpan/2D-Medical-Denoising-Diffusion-Probabilistic-Model-/assets/89927506/3a814bd3-1107-4d23-b295-9088530754d8)
-![image_2](https://github.com/shaoyanpan/2D-Medical-Denoising-Diffusion-Probabilistic-Model-/assets/89927506/cfb2d2c8-f611-497c-93ff-99b7f1ad27a7)
-![image_3](https://github.com/shaoyanpan/2D-Medical-Denoising-Diffusion-Probabilistic-Model-/assets/89927506/e183a0fd-dcd0-4b1a-8c5f-b861c05b4b9f)
-![image_27](https://github.com/shaoyanpan/2D-Medical-Denoising-Diffusion-Probabilistic-Model-/assets/89927506/6c43ef4a-6903-4a72-9363-421fd5c264b4)
+**Brain**
+![Picture2](https://github.com/shaoyanpan/Synthetic-CT-generation-from-MRI-using-3D-transformer-based-denoising-diffusion-model/assets/89927506/6fc5b3d4-e61a-43cc-a29a-2818617e62bc)
 
-![image_4](https://github.com/shaoyanpan/2D-Medical-Denoising-Diffusion-Probabilistic-Model-/assets/89927506/877cfa01-d1b9-4728-ad14-58ac41a3ef9d)
-![image_402](https://github.com/shaoyanpan/2D-Medical-Denoising-Diffusion-Probabilistic-Model-/assets/89927506/8c44d75c-7a9b-4de6-ba01-bae18b5dfe2c)
-![image_6](https://github.com/shaoyanpan/2D-Medical-Denoising-Diffusion-Probabilistic-Model-/assets/89927506/955b5c65-e4a6-4e08-a870-bd59ad0682bd)
-![image_69](https://github.com/shaoyanpan/2D-Medical-Denoising-Diffusion-Probabilistic-Model-/assets/89927506/48f9413e-e630-41e3-9edf-57ad3887822c)
-
-![image_1](https://github.com/shaoyanpan/2D-Medical-Denoising-Diffusion-Probabilistic-Model-/assets/89927506/e19f614d-3441-407c-bbbb-e76d2cda6fa3)
-![image_5](https://github.com/shaoyanpan/2D-Medical-Denoising-Diffusion-Probabilistic-Model-/assets/89927506/959e8a26-4925-4799-a2b7-a4f8f2e15e43)
-![image_7](https://github.com/shaoyanpan/2D-Medical-Denoising-Diffusion-Probabilistic-Model-/assets/89927506/1b4dffb9-a324-4e4b-b76a-1f18648bdb37)
-![image_6](https://github.com/shaoyanpan/2D-Medical-Denoising-Diffusion-Probabilistic-Model-/assets/89927506/e1300ad7-2a5a-42ea-8980-8f37427ca7b1)
-
-![image_8](https://github.com/shaoyanpan/2D-Medical-Denoising-Diffusion-Probabilistic-Model-/assets/89927506/0ac4a0f3-ce65-4280-8442-ac8f2e000c4d)
-![image_6](https://github.com/shaoyanpan/2D-Medical-Denoising-Diffusion-Probabilistic-Model-/assets/89927506/32a0d462-ebbe-465e-9ac2-e8c5d8f75e07)
-![image_4](https://github.com/shaoyanpan/2D-Medical-Denoising-Diffusion-Probabilistic-Model-/assets/89927506/f64e4cc0-155d-4b17-b6aa-68d2362be7ec)
-![image_46](https://github.com/shaoyanpan/2D-Medical-Denoising-Diffusion-Probabilistic-Model-/assets/89927506/43a3b4ce-7469-4f18-8dd7-87689df410b7)
+**Prostate**
+![Picture3](https://github.com/shaoyanpan/Synthetic-CT-generation-from-MRI-using-3D-transformer-based-denoising-diffusion-model/assets/89927506/86d0ba63-6ae5-499c-922a-84693d998a89)
 
 
