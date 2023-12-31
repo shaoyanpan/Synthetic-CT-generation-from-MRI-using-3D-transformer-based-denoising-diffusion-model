@@ -131,7 +131,7 @@ sampled_images = inferer(condition,diffusion_sampling,model)
 ```
 
 
-# Visual examples (also shown in the paper)
+# Visual examples (CT, MRI and generated CT) (also shown in the paper)
 
 **Brain**
 ![Picture2](https://github.com/shaoyanpan/Synthetic-CT-generation-from-MRI-using-3D-transformer-based-denoising-diffusion-model/assets/89927506/6fc5b3d4-e61a-43cc-a29a-2818617e62bc)
