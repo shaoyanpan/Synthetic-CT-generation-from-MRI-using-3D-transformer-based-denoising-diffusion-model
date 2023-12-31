@@ -1,6 +1,6 @@
 
-# 2D-Medical-Denoising-Diffusion-Probabilistic-Model
-**This is the repository for the paper "[2D Medical Image Synthesis Using Transformer-based Denoising Diffusion Probabilistic Model](https://iopscience.iop.org/article/10.1088/1361-6560/acca5c/meta)".**
+# Synthetic CT generation from MRI using 3D transformer-based denoising diffusion model
+**This is the repository for the paper published in Medical Physics: "[Synthetic CT generation from MRI using 3D transformer-based denoising diffusion model](https://iopscience.iop.org/article/10.1088/1361-6560/acca5c/meta)".**
 
 The codes were created based on [image-guided diffusion](https://github.com/openai/guided-diffusion), [SwinUnet](https://github.com/HuCaoFighting/Swin-Unet), and [Monai](https://monai.io/)
 
