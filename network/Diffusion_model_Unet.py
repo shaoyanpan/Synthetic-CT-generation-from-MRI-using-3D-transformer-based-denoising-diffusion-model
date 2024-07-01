@@ -8,7 +8,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 
 # from .fp16_util import convert_module_to_f16, convert_module_to_f32
-from util_nn import (
+from network.util_network import (
     checkpoint,
     conv_nd,
     linear,
