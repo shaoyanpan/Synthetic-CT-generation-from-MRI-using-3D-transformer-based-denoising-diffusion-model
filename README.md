@@ -136,7 +136,6 @@ sampled_images = inferer(condition,diffusion_sampling,model)
 **Brain**
 ![Picture2](https://github.com/shaoyanpan/Synthetic-CT-generation-from-MRI-using-3D-transformer-based-denoising-diffusion-model/assets/89927506/6fc5b3d4-e61a-43cc-a29a-2818617e62bc)
 
-**Prostate**
-![Picture3](https://github.com/shaoyanpan/Synthetic-CT-generation-from-MRI-using-3D-transformer-based-denoising-diffusion-model/assets/89927506/86d0ba63-6ae5-499c-922a-84693d998a89)
+
 
 
